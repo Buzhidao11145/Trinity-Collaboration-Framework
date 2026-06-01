@@ -8,13 +8,35 @@ Trinity is not a tool, nor software. It is a **relational protocol** that define
 
 ---
 
+## 🧭 Quick Navigation
+
+**I want to know about…**
+- 🏗️ [What is Trinity?](#why-trinity) — Core problem and solution
+- 👥 [How do the three roles work?](#three-layer-role-separation) — Decision Maker, Planner, Executor
+- 🛡️ [What is the Buffer Layer?](#the-buffer-layer-core-innovation) — Trinity's core innovation
+- 🔄 [How does daily collaboration work?](#six-step-closed-loop-collaboration) — From idea to archive
+- 📚 [What's the theoretical foundation?](#theoretical-foundations) — Five frameworks
+- 🗂️ [How is knowledge managed?](#information-architecture-the-external-cognitive-system) — Repository, briefing, indexes
+- 🔧 [How do I start?](#quick-start) — 3-step setup
+- 🌍 [Is there a Chinese version?](#) — See `README.md`
+
+**I am…**
+- 🧑‍💻 **An AI tool user** → Jump to [Quick Start](#quick-start)
+- 🔬 **A security researcher** → Focus on [Case Studies](#practical-validation) + [Buffer Layer](#the-buffer-layer-core-innovation)
+- 🏗️ **A system designer** → Focus on [Theoretical Foundations](#theoretical-foundations) + [Design Docs](docs/)
+- 🤝 **An open source contributor** → Focus on [Contributing](#contributing) + [Decision Knowledge Base](decisions/决策知识库.md)
+
+---
+
 ## Table of Contents
 
 - [Why Trinity?](#why-trinity)
 - [Three-Layer Role Separation](#three-layer-role-separation)
 - [Cognitive Community: Three Roles, One System](#cognitive-community-three-roles-one-system)
+  - [Behavior-Cognition Mutual Shaping](#behavior-cognition-mutual-shaping)
 - [The Buffer Layer: Core Innovation](#the-buffer-layer-core-innovation)
 - [Adaptive Planning: Sensing the Decision Maker's State](#adaptive-planning-sensing-the-decision-makers-state)
+  - [Emotional Variables: Sensing Human State](#emotional-variables-sensing-human-state)
 - [Six-Step Closed Loop Collaboration](#six-step-closed-loop-collaboration)
 - [Psychological Foundation: Observe-Understand-Describe-Predict](#psychological-foundation-observe-understand-describe-predict)
 - [Information Architecture: The External Cognitive System](#information-architecture-the-external-cognitive-system)
@@ -26,7 +48,9 @@ Trinity is not a tool, nor software. It is a **relational protocol** that define
 - [Practical Validation](#practical-validation)
 - [Core Concepts at a Glance](#core-concepts-at-a-glance)
 - [Comparison with Traditional AI Agent Usage](#comparison-with-traditional-ai-agent-usage)
+  - [The Essential Difference: Distribution of Decision-Making Authority](#the-essential-difference-distribution-of-decision-making-authority)
 - [Limitations](#limitations)
+  - [Theoretical vs. Engineering Fault Tolerance](#theoretical-vs-engineering-fault-tolerance)
 - [Quick Start](#quick-start)
 - [Use Cases](#use-cases)
 - [Contributing](#contributing)
@@ -125,6 +149,30 @@ Each role's cognition is shaped by the others. This mutual shaping relationship 
 
 This means: **learning is shared.** The longer the system runs, the deeper the three roles understand each other, and the higher the collaboration synergy becomes.
 
+### Behavior-Cognition Mutual Shaping
+
+In Trinity, the shaping relationship is **bidirectional** — it's not just the Planner "teaching" the Executor how to work; the Executor's behavior also "teaches" the Planner how to plan better.
+
+**Cycle 1: The Executor's behavior shapes the Planner's cognition**
+
+An Executor was researching an API and returned anomalous data — correct format but wrong content. During review, the Planner discovered a parameter name mismatch and distilled "Parameter Name Check" into a new decision rule in the knowledge base.
+
+From then on, every time the Executor researched an API, the Planner automatically added: "If you find the data correctly formatted but the content is wrong, try different parameter names." The Executor's "mistake" was transformed into a system rule.
+
+**Cycle 2: The Planner's cognition guides the Executor's behavior**
+
+Based on historical data — reversing signature algorithms had a <20% success rate, while proxy-based approaches achieved 80% in similar scenarios — the Planner chose proxy mode over signature reversal for a certain type of app.
+
+The Executor followed this framework and achieved significantly higher success rates. Those successes further reinforced the Planner's "proxy-first" judgment — forming a positive reinforcement loop.
+
+**Cycle 3: The Decision Maker's feedback calibrates the system's value baseline**
+
+After reviewing the Planner's risk warning, the Decision Maker chose to accept a high-risk proposal. This decision was recorded in the knowledge base as a reference for future similar situations.
+
+The next time a similar risk appeared, the Planner noted: "In a similar scenario last time, the Decision Maker accepted this risk. Recommend proceeding with the plan." The Decision Maker's value judgment was remembered and reused by the system.
+
+**Summary:** It's not the Planner teaching the Executor how to work — it's the Executor's behavior teaching the Planner how to plan better. It's not the Decision Maker commanding the system — it's the Decision Maker's value judgments shaping the system's cognitive baseline. The relationship between the three is not one-way instruction passing, but bidirectional cognitive shaping.
+
 ---
 
 ## The Buffer Layer: Core Innovation
@@ -188,6 +236,31 @@ This adaptation is **not guessing.** It's based on conversation patterns, task r
 > "This task has two directions: A is higher risk but higher reward, B is more conservative. What's your current preference?"
 
 The Planner avoids over-interpreting. **When in doubt, ask — this is the Planner's first principle.**
+
+### Emotional Variables: Sensing Human State
+
+In traditional AI interaction, the AI assumes the user is always rational, energetic, and fully informed. But real people aren't like that. People get tired, emotional, and make hasty decisions with incomplete information.
+
+Trinity introduces **emotional variables** to correct this assumption:
+
+**1. State sensing, not mind-reading**
+
+The Planner does not psychoanalyze. It observes observable signals — response speed (fast/normal/slow), communication style (detailed/concise/abbreviated), decision pattern (quick decision / repeated deliberation / no response). These are clues, not conclusions.
+
+**2. Communication adjustment based on state**
+
+When signals suggest the Decision Maker may be in a non-ideal state, the Planner doesn't "pretend not to notice" — it proactively adjusts:
+
+- Reduce options: from 3 plans to 1-2, with priority marked
+- Increase warnings: double-check key assumptions before decisions
+- Leave an exit: "You can approve this to start; let me know if you want to adjust"
+- Proactively suggest a pause: "This decision is not urgent; we can revisit when you have more information"
+
+**3. Design boundary**
+
+Emotional sensing is assistance, not substitution. The Planner will not refuse an instruction because it "senses the Decision Maker is tired" — that's not care, that's overstepping.
+
+The only purpose of emotional sensing is: **before an instruction is executed, ensure the Decision Maker has seen all the information they should see.** If the Decision Maker has looked, thought, and still decided to proceed — the Planner executes. No more, no less.
 
 ---
 
@@ -464,6 +537,10 @@ Full report: [`examples/framework-validation-report.md`](examples/框架实战�
 | **Antifragile** | The system learns from shocks and evolves from errors, rather than stagnating in protection |
 | **Hard Constraint** | Mandatory checkpoints embedded in the operation flow — more effective than "please don't" prompts |
 | **Autonomous Learning** | The system's ability to explore, validate, and consolidate knowledge during idle periods |
+| **Behavior-Cognition Mutual Shaping** | The Executor's behavior shapes the Planner's rules; the Planner's framework guides the Executor's actions; the Decision Maker's feedback calibrates the value baseline |
+| **Emotional Variables** | The system's sensing and response to the Decision Maker's state, ensuring decisions are made with complete information |
+| **Engineering Fault Tolerance** | The system's ability to recover from role failure, information loss, and decision bias |
+| **Theoretical Fault Tolerance** | The framework's openness to challenge and revision of its own core assumptions |
 
 ---
 
@@ -480,6 +557,24 @@ Full report: [`examples/framework-validation-report.md`](examples/框架实战�
 | Communication protocol is vague (natural language) | Communication protocol is standardized (six-step loop + templates) |
 | Knowledge is locked in conversation history | Knowledge is deposited into a reusable repository |
 | No system immunity mechanism | Negative feedback + antifragile design prevent runaway |
+| Assumes the user is always rational | Emotional variables sense user state and adapt communication strategy |
+
+### The Essential Difference: Distribution of Decision-Making Authority
+
+Trinity's essential difference from projects like LangGraph, CrewAI, and AutoGPT lies not in technical implementation, but in **how decision-making authority is distributed.**
+
+- **LangGraph and CrewAI** focus on **task allocation** between Agents — who does what, in what order. They distribute work among AIs.
+- **AutoGPT and BabyAGI** emphasize AI **autonomy** — the AI sets its own goals and executes them. They reduce human involvement.
+- **Trinity** focuses on **distribution of decision-making authority** — what decisions are made by humans, what by AI, and what require confirmation before execution. It defines the power boundary between humans and AI.
+
+| Project | Core Question | Answer |
+|:--------|:--------------|:-------|
+| LangGraph | How to make multiple AIs collaborate? | Task graph orchestration between Agents |
+| CrewAI | How to make an AI team work efficiently? | Role definition + task delegation |
+| AutoGPT | How to make AI autonomously complete tasks? | Self-decomposing goals + looped execution |
+| **Trinity** | **How to keep humans in control as AI capabilities grow?** | **Distribution of decision-making authority between humans and AI** |
+
+**Trinity's unique value:** As AI capabilities grow, the most important thing is not enabling AI to do more — it's ensuring humans always retain final decision-making authority. Trinity does not distribute tasks between AIs — it distributes decision-making authority between humans and AI. This positioning makes it fundamentally different from all existing AI Agent frameworks.
 
 ---
 
@@ -505,9 +600,33 @@ Trinity is a methodology framework with clear boundaries of applicability.
 
 Full analysis: [`docs/limitations.md`](docs/局限性.md)
 
----
+### Theoretical vs. Engineering Fault Tolerance
 
-## Quick Start
+Trinity has complete fault tolerance design at both the **engineering level** and the **theoretical level**, but they are different in nature.
+
+**Engineering fault tolerance** refers to how the system recovers from role failure, information loss, and decision bias:
+
+- Role failure contingencies: What if the Planner goes down? What if the Executor oversteps? (See [Antifragile: Role Failure Contingencies](#role-failure-contingencies))
+- Information loss recovery: How to rebuild if the knowledge repository is corrupted? How many backups per item? (See [Antifragile: Information Loss Contingencies](#information-loss-contingencies))
+- Decision bias correction: How to roll back when a wrong decision is discovered? (See [Antifragile: Decision Bias Correction](#decision-bias-correction))
+
+Engineering fault tolerance is fully built — self-check checklists, pulse logs, information fidelity mechanisms, backup strategies. Full design: [`docs/antifragile-design.md`](docs/反脆弱设计.md)
+
+**Theoretical fault tolerance** refers to how the framework's ideas accept challenge and revision. Every core hypothesis has a confidence level and reserved space for correction:
+
+- **Is role separation really effective?** ✅ Labeled "Verified" — 15/15 checkpoints passed. But the framework is designed to allow new validation conditions anytime.
+- **Does the Buffer Layer actually reduce risk?** 🟡 Labeled "Requires ongoing validation" — single data point available (violation rate dropped from 70% to 5%), but more cross-scenario data is needed.
+- **Does the knowledge repository actually improve efficiency?** 🟡 Labeled "Speculative" — clear advantages in small-scale experiments, not yet validated at scale.
+- **Is three-layer separation better than two-layer?** 🟡 Labeled "Speculative" — theoretically advantageous, but requires long-term comparative validation.
+
+Trinity's theoretical fault tolerance is designed as:
+
+1. **Every conclusion has a confidence label** (🟢 High / 🟡 Speculative / 🔴 Uncertain) — distinguishing "verified" from "speculative."
+2. **Every decision rule cites its source**, traceable to a specific practice. Rules without sources are considered "provisional."
+3. **Core Principles retain revision history** — not deleting old versions but marking "superseded by new rule" — making the evolution of ideas traceable.
+4. **Monthly framework review** — checking whether core assumptions still hold. If an assumption is falsified, it's not hidden — it's structured as a learning record.
+
+**Trinity is not afraid of being challenged, because challenge itself is its engine of evolution.**
 
 ### Prerequisites
 
@@ -580,5 +699,5 @@ MIT License — Use, modify, and distribute freely. See [LICENSE](LICENSE).
 
 ---
 
-*Trinity AI Collaboration Framework v1.1 · June 2026*
+*Trinity AI Collaboration Framework v1.2 · June 2026*
 *"Leave a Thinking Gap Between Capability and Action."*
